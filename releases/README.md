@@ -1,6 +1,4 @@
-# Maverick SDK Libraries
-
-## Overview
+## Maverick SDK Libraries
 
 The Maverick SDK libraries can be downloaded from this repository.
 
