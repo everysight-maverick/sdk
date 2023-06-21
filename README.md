@@ -1,16 +1,14 @@
 # Everysight's Maverick SDK
 
-## Overview
+<img src="https://everysight.github.io/maverick_docs/assets/index-maverick2.jpg" width="300">
 
 The Maverick SDK repository contain our SDK libraries, issues management and supporting tools.
 
 ## How to start your Maverick application development?
 
-Full documentation can be found in our [developers portal](https://everysight.github.io/maverick_docs/)
-
-Download the latest SDK binaries for IOS & Android from the [releases page](./releases)
-
-Samples code for Android and IOS can be found in the [Samples Repository](https://github.com/everysight-maverick/samples)
+1. Ready our documentation in our [developers portal](https://everysight.github.io/maverick_docs/)
+2. Download the latest SDK binaries for IOS & Android from the [releases page](./releases)
+3. Samples code for Android and IOS can be found in the [samples repository](https://github.com/everysight-maverick/samples)
 
 
 Enjoy!
