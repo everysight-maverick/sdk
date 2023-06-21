@@ -1,6 +1,6 @@
 # Maverick SDK Tools
 
-This folder contain scripts and tools that supports the SDK.
+This folder contains scripts and tools that supports the SDK.
 
 Available tools:
 
