@@ -313,7 +313,7 @@ def optipng(optipng, image):
 
 #############################################################################################
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser('Everysight Epsilon Image Converter / Viewer')
+    parser = argparse.ArgumentParser('Everysight Maverick Image Converter / Viewer')
     parser.add_argument('-s', '--show', action='store_true', default=False, help='Show image')
     parser.add_argument('-c', '--convert', action='store_true', default=True, help='Convert image')
     parser.add_argument('image', type=str, help='Image file')
