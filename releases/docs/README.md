@@ -17,12 +17,19 @@ Performance updates
 
 ### Open Source List
 
+#### Common
+
 - Kotlin: https://www.apache.org/licenses/LICENSE-2.0.txt (Apache)
-- Swift: https://github.com/apple/swift/blob/main/LICENSE.txt (Apache)
 - zlib: https://github.com/madler/zlib/
-- jzlib: https://github.com/ymnk/jzlib/blob/master/LICENSE.txt (BSD-Style)
+
+#### IOS 
+- Swift: https://github.com/apple/swift/blob/main/LICENSE.txt (Apache)
+- https://github.com/Kitura/Swift-JWT (Apache)
+
+#### Android
 - androidx: https://www.apache.org/licenses/LICENSE-2.0.txt (Apache)
 - android material: https://github.com/material-components/material-components-android/blob/master/LICENSE  (Apache)
+- https://github.com/jwtk/jjwt (Apache)
 
 ### Bugs Fixes & Updates
 #### SDK
