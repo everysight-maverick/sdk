@@ -4,10 +4,9 @@ This folder contains scripts and tools that supports the SDK.
 
 Available tools:
 
-|Tool|Description
-|-----|---------
-|[simulator](./simulator/)| Maverick Simulator
-|[image_convert](./image_convert/)| Optimizing png and jpg images to fit the glasses needs
-|[font2sif](./font2sif/)| Creating font for the glasses
+|Tool|Description|Additional Information|
+|-----|---------|-------|
+|[simulator](./simulator/)| Maverick Simulator|[Maverick Simulator](https://everysight.github.io/maverick_docs/sdk-engine/simulator/)
+|[image_convert](./image_convert/)| Optimizing png and jpg images to fit the glasses needs|[Managing Resources](https://everysight.github.io/maverick_docs/ui-kit/resources/)
+|[font2sif](./font2sif/)| Creating font for the glasses|[Managing Resources](https://everysight.github.io/maverick_docs/ui-kit/resources/)
 
-More about managing the glasses resources can be found [here](https://everysight.github.io/maverick_docs/ui-kit/resources/)
