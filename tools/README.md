@@ -6,6 +6,7 @@ Available tools:
 
 |Tool|Description
 |-----|---------
+|[simulator](./simulator/)| Maverick Simulator
 |[image_convert](./image_convert/)| Optimizing png and jpg images to fit the glasses needs
 |[font2sif](./font2sif/)| Creating font for the glasses
 
