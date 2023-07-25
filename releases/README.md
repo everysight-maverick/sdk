@@ -2,16 +2,13 @@
 
 The Maverick SDK libraries can be downloaded from this repository.
 
-The libraries release notes can be found [here](./docs/README.md)
+Release notes can be found [here](./docs/README.md)
 
-Remember to use your developer api key for enabling communication with the glasses
+Remember to use your `sdk.key` for enabling communication with the glasses.
 
 ## Latest Releases
 
-|SDK Version | Notes
-|-----------|-----------
-|2.5.0|
+|Date|SDK Version |Latest Firmware Support| Status
+|----|-----------|-----------|----
+|July 25, 2023|2.5.0|119 |Stable
 
-## Package Management
-
-Maven and spm support are currently being developed and will be made available once they are ready.
