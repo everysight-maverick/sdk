@@ -1,0 +1,283 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name EvsKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
+import Compression
+import CoreBluetooth
+import CoreMedia
+@_exported import EvsKit
+import Foundation
+import NativeEvsKit
+import Network
+import ObjectiveC
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import os.log
+import os
+import ObjectiveC.runtime
+import simd
+import zlib
+public protocol IBleScanListener : EvsKit.IBtAdapterStateListener {
+  func onScanStarted()
+  func onScanStopped()
+  func onScanFailed()
+  func onPeripheralFound(deviceUuid: Swift.String, localName: Swift.String, rssi: Foundation.NSNumber)
+}
+public protocol IBtAdapterStateListener {
+  func onBtStateChanged(state: CoreBluetooth.CBManagerState)
+}
+public typealias SliderHandler = (_ value: Swift.Float) -> Swift.Void
+extension Swift.Int32 {
+  public func toUIColor() -> UIKit.UIColor
+}
+public let serviceCBUUID: CoreBluetooth.CBUUID
+public let charNotifyCBUUID: CoreBluetooth.CBUUID
+public let charControlCBUUID: CoreBluetooth.CBUUID
+public let charPairingCBUUID: CoreBluetooth.CBUUID
+extension Foundation.Date {
+  public func currentTimeMillis() -> Swift.Int64
+}
+extension Swift.String {
+  public func appendLineToURL(fileURL: Foundation.URL) throws
+  public func appendToURL(fileURL: Foundation.URL) throws
+}
+extension Foundation.Data {
+  public func append(fileURL: Foundation.URL) throws
+}
+extension Foundation.Data {
+  public func toKotlinData() -> NativeEvsKit.KotlinByteArray?
+}
+extension Foundation.URL {
+  public var attributes: [Foundation.FileAttributeKey : Any]? {
+    get
+  }
+  public var fileSize: Swift.UInt64 {
+    get
+  }
+  public var fileSizeString: Swift.String {
+    get
+  }
+  public var creationDate: Foundation.Date? {
+    get
+  }
+}
+extension Foundation.Bundle {
+  public static func getVersion() -> Swift.String
+}
+public struct ProgressBarView : SwiftUI.Animatable, SwiftUI.View {
+  public enum FillAxis {
+    case horizontal
+    case vertical
+    public static func == (a: EvsKit.ProgressBarView.FillAxis, b: EvsKit.ProgressBarView.FillAxis) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(progress: SwiftUI.Binding<Swift.Double>, icon: UIKit.UIImage, foregroundColor: SwiftUI.Color, backgroundColor: SwiftUI.Color = .clear, borderColor: SwiftUI.Color = .clear, cornerRadius: CoreFoundation.CGFloat = 8, fillAxis: EvsKit.ProgressBarView.FillAxis = .horizontal)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias AnimatableData = SwiftUI.EmptyAnimatableData
+  public typealias Body = @_opaqueReturnTypeOf("$s6EvsKit15ProgressBarViewV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers public class Evs {
+  public static func instance() -> NativeEvsKit.IEvsApp
+  public static func initOptions(options: [Swift.String : Swift.String]) throws
+  public static func startDefaultLogger()
+  public static func stopDefaultLogger()
+  public static func setLogger(logger: (any NativeEvsKit.IEvsLogger)?)
+  public static func getLogger() -> (any NativeEvsKit.IEvsLogger)?
+  @objc deinit
+}
+@objc open class BLEPeripheral : ObjectiveC.NSObject, NativeEvsKit.IBleDevice, EvsKit.IBtAdapterStateListener {
+  public var last_RSSI: Swift.Int
+  @objc public var enableAutoConnect: Swift.Bool
+  public init(sensorsManager: EvsKit.EvsSensorsManager, peripheral: CoreBluetooth.CBPeripheral)
+  public init(sensorsManager: EvsKit.EvsSensorsManager, idOrAddress: Swift.String?)
+  @objc public func setDeviceInfo(id: Swift.String, name: Swift.String)
+  public func onBtStateChanged(state: CoreBluetooth.CBManagerState)
+  @objc public func name() -> Swift.String
+  @objc public func registerNotify(serviceUUID: Swift.String, charaUUID: Swift.String, listener: any NativeEvsKit.IEvsCommunicationChannelListener)
+  @objc public func registerEvents(listener: any NativeEvsKit.IEvsCommunicationChannelListener) -> Swift.Int32
+  @objc public func unregisterEvents(withId: Swift.Int32)
+  @objc public func unregisterNotify(serviceUUID: Swift.String, charaUUID: Swift.String, listener: any NativeEvsKit.IEvsCommunicationChannelListener)
+  public func clearNotifications()
+  @objc public func hasConsumers() -> Swift.Bool
+  @objc public func connect() -> Swift.Bool
+  @objc public func connectSecured() -> Swift.Bool
+  @objc public func disconnect() -> Swift.Bool
+  @objc public func getMtuSize() -> Swift.Int32
+  @objc public func isAdapterEnabled() -> Swift.Bool
+  @objc public func isConnected() -> Swift.Bool
+  @objc public func isConnecting() -> Swift.Bool
+  @objc public func requestBatteryRead(callback: @escaping (NativeEvsKit.KotlinInt) -> Swift.Void) -> Swift.Bool
+  @objc public func requestRssiRead(callback: @escaping (NativeEvsKit.KotlinInt) -> Swift.Void) -> Swift.Bool
+  public func onRegisterNotificationCompleted(_ characteristic: CoreBluetooth.CBCharacteristic)
+  public func onUnregisterNotificationCompleted(_ characteristic: CoreBluetooth.CBCharacteristic)
+  public func onRegisterNotificationFailed(_ characteristic: CoreBluetooth.CBCharacteristic)
+  public func onRegisterNotificationCompleted()
+  public func onDeviceFailedToConnect()
+  public func onDeviceConnected()
+  public func onDeviceDisconnected()
+  open func onNewValue(_ data: Foundation.Data, _ characteristic: CoreBluetooth.CBCharacteristic)
+  @objc deinit
+}
+extension EvsKit.BLEPeripheral : CoreBluetooth.CBPeripheralDelegate {
+  @objc dynamic public func peripheralIsReady(toSendWriteWithoutResponse peripheral: CoreBluetooth.CBPeripheral)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: (any Swift.Error)?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: (any Swift.Error)?)
+  @objc dynamic public func peripheralDidUpdateRSSI(_ peripheral: CoreBluetooth.CBPeripheral, error: (any Swift.Error)?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: (any Swift.Error)?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateNotificationStateFor characteristic: CoreBluetooth.CBCharacteristic, error: (any Swift.Error)?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didModifyServices invalidatedServices: [CoreBluetooth.CBService])
+}
+public struct BackgroundBlurBlackView : SwiftUI.UIViewRepresentable {
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: EvsKit.BackgroundBlurBlackView.Context) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: UIKit.UIView, context: EvsKit.BackgroundBlurBlackView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+  public typealias UIViewType = UIKit.UIView
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class EvsSystemLogger : ObjectiveC.NSObject, NativeEvsKit.IEvsSystemLogger {
+  public static let shared: EvsKit.EvsSystemLogger
+  public static func initSDKWithSystemLogger()
+  public static let LOGS_FOLDER: Foundation.URL
+  @objc public func terminate()
+  @objc public func isDebug() -> Swift.Bool
+  @objc public func setDebugMode(isDebug: Swift.Bool)
+  @objc public func doInit(type: Swift.String, headers: NativeEvsKit.KotlinArray<Foundation.NSString>) -> (any NativeEvsKit.IEvsLogger)?
+  public func doInit(type: Swift.String, headers: [Swift.String]) -> (any NativeEvsKit.IEvsLogger)?
+  @objc public func logger(type: Swift.String) -> (any NativeEvsKit.IEvsLogger)?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class EvsSensorsManager : ObjectiveC.NSObject {
+  public static let shared: EvsKit.EvsSensorsManager
+  public var TAG: Swift.String
+  public var HR_SERVICE: Swift.String
+  public var POWER_SERVICE: Swift.String
+  public var CADENCE_SPEED_SERVICE: Swift.String
+  public var CADENCE_SERVICE: Swift.String
+  public var SPEED_SERVICE: Swift.String
+  public var CONTROLLER_EVS_SERVICE: Swift.String
+  public var CONTROLLER_SENA_SERVICE: Swift.String
+  public var btPowerState: CoreBluetooth.CBManagerState
+  public func isAdapterOn() -> Swift.Bool
+  public func retrievePeripherals(idOrAddress: Swift.String) -> CoreBluetooth.CBPeripheral?
+  public func connectedDevice(device: EvsKit.BLEPeripheral) -> Swift.Bool
+  public func disconnectDevice(device: EvsKit.BLEPeripheral) -> Swift.Bool
+  public func addScanListener(_ listener: any EvsKit.IBleScanListener) -> Swift.Int
+  public func removeScanListener(listenerId: Swift.Int)
+  public func addBtAdapterStateListener(_ listener: any EvsKit.IBtAdapterStateListener) -> Swift.Int
+  public func removeBtAdapterStateListener(listenerId: Swift.Int)
+  public func isScanning() -> Swift.Bool
+  public func scan(service: Swift.String?)
+  public func stopScan()
+  @objc deinit
+}
+extension EvsKit.EvsSensorsManager : CoreBluetooth.CBCentralManagerDelegate {
+  @objc dynamic public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didFailToConnect peripheral: CoreBluetooth.CBPeripheral, error: (any Swift.Error)?)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didConnect peripheral: CoreBluetooth.CBPeripheral)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDisconnectPeripheral peripheral: CoreBluetooth.CBPeripheral, error: (any Swift.Error)?)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BtScanner : ObjectiveC.NSObject {
+  public static let shared: EvsKit.BtScanner
+  public func scanForGlasses(bleScanListener: (any EvsKit.IBleScanListener)?)
+  public func stopScan()
+  @objc deinit
+}
+extension EvsKit.BtScanner : CoreBluetooth.CBCentralManagerDelegate {
+  @objc dynamic public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+}
+public enum OtaState {
+  case none, uploading, installing, completed, failed
+  public static func == (a: EvsKit.OtaState, b: EvsKit.OtaState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+final public class LinkedList<T> {
+  public class LinkedListNode<T> {
+    public init(value: T)
+    @objc deinit
+  }
+  public typealias Node = EvsKit.LinkedList<T>.LinkedListNode<T>
+  final public var last: EvsKit.LinkedList<T>.Node? {
+    get
+  }
+  final public var isEmpty: Swift.Bool {
+    get
+  }
+  final public var count: Swift.Int {
+    get
+  }
+  public init()
+  final public subscript(index: Swift.Int) -> T {
+    get
+  }
+  final public func node(at index: Swift.Int) -> EvsKit.LinkedList<T>.Node
+  final public func append(_ value: T)
+  final public func append(_ node: EvsKit.LinkedList<T>.Node)
+  final public func append(_ list: EvsKit.LinkedList<T>)
+  final public func insert(_ value: T, at index: Swift.Int)
+  final public func insert(_ newNode: EvsKit.LinkedList<T>.Node, at index: Swift.Int)
+  final public func insert(_ list: EvsKit.LinkedList<T>, at index: Swift.Int)
+  final public func removeAll()
+  @discardableResult
+  final public func remove(node: EvsKit.LinkedList<T>.Node) -> T
+  @discardableResult
+  final public func removeLast() -> T
+  @discardableResult
+  final public func remove(at index: Swift.Int) -> T
+  @objc deinit
+}
+extension EvsKit.LinkedList : Swift.CustomStringConvertible {
+  final public var description: Swift.String {
+    get
+  }
+}
+extension EvsKit.LinkedList {
+  final public func reverse()
+}
+extension EvsKit.LinkedList {
+  final public func map<U>(transform: (T) -> U) -> EvsKit.LinkedList<U>
+  final public func filter(predicate: (T) -> Swift.Bool) -> EvsKit.LinkedList<T>
+}
+extension EvsKit.LinkedList : Swift.ExpressibleByArrayLiteral {
+  convenience public init(arrayLiteral elements: T...)
+  public typealias ArrayLiteralElement = T
+}
+extension EvsKit.LinkedList : Swift.Collection {
+  public typealias Index = EvsKit.LinkedListIndex<T>
+  final public var startIndex: EvsKit.LinkedList<T>.Index {
+    get
+  }
+  final public var endIndex: EvsKit.LinkedList<T>.Index {
+    get
+  }
+  final public subscript(position: EvsKit.LinkedList<T>.Index) -> T {
+    get
+  }
+  final public func index(after idx: EvsKit.LinkedList<T>.Index) -> EvsKit.LinkedList<T>.Index
+  public typealias Element = T
+  public typealias Indices = Swift.DefaultIndices<EvsKit.LinkedList<T>>
+  public typealias Iterator = Swift.IndexingIterator<EvsKit.LinkedList<T>>
+  public typealias SubSequence = Swift.Slice<EvsKit.LinkedList<T>>
+}
+public struct LinkedListIndex<T> : Swift.Comparable {
+  public static func == <T>(lhs: EvsKit.LinkedListIndex<T>, rhs: EvsKit.LinkedListIndex<T>) -> Swift.Bool
+  public static func < <T>(lhs: EvsKit.LinkedListIndex<T>, rhs: EvsKit.LinkedListIndex<T>) -> Swift.Bool
+}
+public typealias SwHandler = (_ state: Swift.Bool) -> Swift.Void
+extension EvsKit.ProgressBarView.FillAxis : Swift.Equatable {}
+extension EvsKit.ProgressBarView.FillAxis : Swift.Hashable {}
+extension EvsKit.OtaState : Swift.Equatable {}
+extension EvsKit.OtaState : Swift.Hashable {}

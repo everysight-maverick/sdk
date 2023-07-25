@@ -3,17 +3,16 @@
 This file contains the SDK release notes for SDK versions 2.X.X
 
 ---
-## Version 2.4.3 (RC3)
+## Version 2.5.0
 
-Release date: 21.03.2023
+Release date: 25.07.2023
 
 ### Highlights
 
-Glasses Firmware 118 support
+Glasses Firmware 119 support
 
-Built with Kotlin Version 1.8.0
+Built with Kotlin Version 1.8.10
 
-Performance updates
 
 ### Open Source List
 
@@ -34,42 +33,37 @@ Performance updates
 ### Bugs Fixes & Updates
 #### SDK
 
-This version mainly handles performance optimizations at high rendering rates
+This version mainly handles performance optimizations
 
-#### Firmware 118
+#### Firmware 119
 
 Rendering performance optimizations
 
 ### API Compatibility
 
-Most Bytes & Short data types were changed to Int (performance related issues at high rendering rates)
-
-Blink animation was moved from UIElement to Animator
-
-Several API changes as follows:
+Several API changes as follows*:
 
 #### Main API Updates
-| API        | Action  | Method Name\Notes |
+| API          | Action  | Method Name\Notes |
 | ------------ | ------- | ----------------- |
-|AppErrorCode               |Add|added `FailedPairing` error code
-|Various Enums              |Modified | Changed data type from Byte to Int
-|Polyline                   |Modified|ctor parameters change _xs,_ys -> _xys
-|Path                       |Modified|ctor parameters change _xs,_ys -> _xys
-|Path                       |Modified|setPath parameters change _xs,_ys -> _xys
-|UIElement                  |Add| added setXY, setWidthHeight, setDimensions methods
-|UIElement                  |Removed|Blink functionality was moved to Animator
-|UIElement                  |Removed|onTouch (use IEvsGlassesEvents instead)
-|UIElement                  |Removed|getBoundingBoxTransformed (use getBoundingBox instead)
-|UIElementGroup             |Removed| cancelAnimationsTree
-|IEvsAutoBrightnessEvents   |Add|added onAutoBriGainChanged callback method
-|IEvsAutoBrightnessController|Add| added methods getGain, addGain
-|IEvsGlassesStateService    |Add| added method getSerialInfo
-|IEvsScreenService          |Add| added method removeTopmostScreen
-|Animator                   |Add|added blink,isBlinking methods 
-|IEvsSensorsService         |Modified|added usePredication parameter to enableSensorsFusion
-|CanvasBuffer               |Modified|drawPath xyPoints as a single array
-|CanvasBuffer               |Modified|drawPolygon xyPoints as a single array, added stride
-|BoundingBox                |Modified | IsEmpty->isEmpty
-|BoundingBox                |Add | isSameAs, isValid,isInside, union,intersect
-|FastQue                    |Add|classes added
+|IEvsAuthService       |New | added the `IEvsAuthService` interface
+|IEvsInertialSensorsEvents       |New | added the `IEvsInertialSensorsEvents` interface
+|ControllerAction               |New|enum added
+|IEvsApp       |Modified | added `auth` to expose the `IEvsAuthService` 
+|IEvsApp       |Modified | removed `setApiKey`(moved to `IEvsAuthService`)
+|IEvsApp       |Modified | removed `setApiKeyName`(moved to `IEvsAuthService`)
+|UIElement       |Modified | added `addToScreen`
+|UIElement       |Modified | added `addToGroup`
+|IEvsSensorsService       |Modified | added `enableMagneticDeclinationCorrection`
+|IEvsSensorsService       |Modified | added `unregisterInertialSensorsEvents`
+|IEvsOtaService       |Modified | added `pauseOtaAvailableNotification`
+|IEvsOtaService       |Modified | added `isOtaAvailableNotificationPaused`
+|UIResource       |Modified | added `retryUpload` method
+|ScreenRenderRate       |Modified | rendering rates were updated
+|Screen       |Modified | `onResourcesUploadStart` removed
+|Screen       |Modified | `resourcesToUploadCount` removed
+|Screen       |Modified | `hasResourcesToUpload` removed
+|AppErrorCode       |Modified | `ActivationError` added
+|BTConstants               |Renamed|epsilonServiceUUID->serviceUUID
 
+<sup>*The API changes in version 2.5.0 have been compared with version 2.4.3 limited release</sup>

@@ -10,7 +10,7 @@ Remember to use your developer api key for enabling communication with the glass
 
 |SDK Version | Notes
 |-----------|-----------
-|2.4.3|**Coming Soon**
+|2.5.0|
 
 ## Package Management
 

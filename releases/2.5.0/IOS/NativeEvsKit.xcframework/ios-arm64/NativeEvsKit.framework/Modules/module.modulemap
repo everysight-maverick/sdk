@@ -1,0 +1,8 @@
+framework module NativeEvsKit {
+    umbrella header "NativeEvsKit.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}

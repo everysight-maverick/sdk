@@ -1,0 +1,11 @@
+framework module EvsKit {
+  umbrella header "EvsKit.h"
+
+  export *
+  module * { export * }
+}
+
+module EvsKit.Swift {
+  header "EvsKit-Swift.h"
+  requires objc
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "version": 119,
+    "releaseDate": "05.07.2023",
+    "required": true,
+    "formal": true,
+    "color": {
+      "description": "Formal 119",
+      "extensionType": "bin",
+      "fileNameSt": "stm32wb.color.119.enc",
+      "fileNameMaxim": "max32650.119.enc"
+    }
+  }
+]
