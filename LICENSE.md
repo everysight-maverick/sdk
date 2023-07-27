@@ -1,0 +1,1 @@
+This repository license is defined by Everysight [Term of Sale](https://www.everysight.com/legal/terms-of-sale), [Term of Service](https://www.everysight.com/legal/terms-of-service) and [SDK License](https://www.everysight.com/legal/sdk-license) 
