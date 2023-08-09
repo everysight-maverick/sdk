@@ -6,9 +6,9 @@ The structure of the simulator folders is organized as `Firmware[Firmware Versio
 
 | File | OS| Minimum Supported Version
 |--|--|--|
-|MaverickSim119.exe|Windows|x64, Windows 10
-|MaverickSim119.dmg|MacOS|Arm, Ventura
-|MaverickSim119|Linux|Ubuntu 20.04
+|`MaverickSim[Firmware Version].win.x64.exe`|Windows|x64, Windows 10
+|`MaverickSim[Firmware Version].mac.arm.dmg`|MacOS|Arm, Ventura
+|`MaverickSim[Firmware Version].linux.x86_64`|Linux|Ubuntu 20.04
 
 
 
