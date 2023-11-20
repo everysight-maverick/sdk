@@ -21,7 +21,7 @@ if sys.version_info < (3, 0):
     exit(-1)
 
 
-__version_info__ = ('1', '0', '1')
+__version_info__ = ('1', '0', '2')
 __version__ = '.'.join(__version_info__)
 
 try:
@@ -376,7 +376,8 @@ if __name__ == "__main__":
         if(ret is None):
             pass
         elif ret and optipng_cmd is not None:
-            ret = optipng(optipng_cmd, args.out)
+            if not args.alpha:  # TODO: add palate+alpha support
+                ret = optipng(optipng_cmd, args.out)
         else:
             logger.warning("No optipng tool found, output PNG is not optimal")
             logger.warning(
