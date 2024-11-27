@@ -2,7 +2,7 @@
 
 <img src="https://everysight.github.io/maverick_docs/assets/index-maverick2.jpg" width="300">
 
-Welcome, Developers!  
+### Welcome, Developers!  
 
 The Maverick SDK repository is your go-to resource for release notes, issue tracking, and tools to support your development.  
 
