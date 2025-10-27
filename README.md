@@ -12,10 +12,10 @@ As always, the SDK release notes can be found [here](./libraries/docs/README.md)
 
 ### So, how to start your Maverick application development?
 
-1. Order your Maverick Smartglasses and get your developer key at [www.everysight.com/developer](https://www.everysight.com/developer)
+1. Order your Maverick Smart-glasses and get your developer key at [www.everysight.com/developer](https://www.everysight.com/developer)
 2. Read our documentation within the [developers portal](https://everysight.github.io/maverick_docs/)
 3. Configure the latest SDK libraries for [iOS & Android](https://everysight.github.io/maverick_docs/libraries-api/overview/)
-4. Explor and try our samples for iOS and Android in the [samples repository](https://github.com/everysight-maverick/samples)
+4. Explore and try our samples for iOS and Android in the [samples repository](https://github.com/everysight-maverick/samples)
 
 
 Enjoy!

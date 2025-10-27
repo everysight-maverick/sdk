@@ -3,6 +3,51 @@
 This file contains the SDK release notes for SDK versions 2.X.X
 
 ---
+## Version 2.6.1
+
+Release date: 27 October 2025
+
+### Highlights
+
+This version includes minor fixes and API changes introduced in version 2.6.0.
+
+### Open Source List
+
+#### Common
+
+- Kotlin: https://www.apache.org/licenses/LICENSE-2.0.txt (Apache)
+- zlib: https://github.com/madler/zlib/
+
+#### IOS 
+- Swift: https://github.com/apple/swift/blob/main/LICENSE.txt (Apache)
+- JSONWebToken: https://github.com/kreactive/JSONWebToken/tree/master (MIT)
+
+#### Android
+- androidx: https://www.apache.org/licenses/LICENSE-2.0.txt (Apache)
+- android material: https://github.com/material-components/material-components-android/blob/master/LICENSE  (Apache)
+- jjwt: https://github.com/jwtk/jjwt (Apache)
+
+### Bugs Fixes & Updates
+
+#### Main fixed bugs
+
+| Fixed Bugs          
+| ------------ 
+| Android EvsKit follows 16KB page size requirement
+| Android Pairing flow fixes, following Android API Level 36
+| Support Android API Level 36, gradle 8.12.3, Kotlin 2.2.20
+| Some LOS calculation fixes
+
+### API Compatibility
+
+The following API changes have been made
+
+| API          | Change |
+| ------------ | ----------------- |
+|ImgSrc| Add option to generate image from text using TextParams class
+|ViewPort| Add onRenderingCenterChanged protected method
+
+---
 ## Version 2.6.0
 
 Release date: 25 NOV 2024
